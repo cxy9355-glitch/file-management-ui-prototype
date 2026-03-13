@@ -96,6 +96,7 @@ export default function App() {
   const [showMoveModal, setShowMoveModal] = useState(false);
   const [permissionLevel, setPermissionLevel] = useState("shared");
   const [selectedFileDetails, setSelectedFileDetails] = useState(null);
+  const [permissionModalMode, setPermissionModalMode] = useState("batch");
 
   const baseFiles = activeTab === "my" ? mockMyFiles : mockCobuildFiles;
   const currentFiles = baseFiles.filter((file) => file.category === activeCategory);
@@ -121,6 +122,7 @@ export default function App() {
     setIsMultiSelect((value) => !value);
     setSelectedIds([]);
     setSelectedFileDetails(null);
+    setPermissionModalMode("batch");
   };
 
   const toggleSelect = (id) => {
@@ -148,6 +150,7 @@ export default function App() {
     }
 
     setSelectedIds([selectedFileDetails.id]);
+    setPermissionModalMode("single");
     setShowPermissionModal(true);
   };
 
@@ -272,7 +275,12 @@ export default function App() {
                 </button>
 
                 <button
-                  onClick={() => selectedIds.length > 0 && setShowPermissionModal(true)}
+                  onClick={() => {
+                    if (selectedIds.length > 0) {
+                      setPermissionModalMode("batch");
+                      setShowPermissionModal(true);
+                    }
+                  }}
                   className={`flex items-center gap-1 rounded-full px-4 py-1.5 font-medium shadow-sm transition-colors ${selectedIds.length > 0 ? "border border-green-300 bg-green-100 text-green-700 hover:bg-green-200" : "cursor-not-allowed bg-gray-200 text-gray-400"}`}
                 >
                   <ShieldCheck size={16} />
@@ -367,7 +375,6 @@ export default function App() {
                   <span className="w-full truncate text-center font-medium text-gray-700">
                     {file.name}
                   </span>
-                  {file.author && <span className="mt-1 text-xs text-gray-400">来自: {file.author}</span>}
                 </div>
               ))}
             </div>
@@ -380,7 +387,7 @@ export default function App() {
               <div className="flex items-center justify-between border-b bg-gray-50 px-6 py-4">
                 <h3 className="flex items-center gap-2 text-lg font-bold text-gray-800">
                   <ShieldCheck className="text-blue-500" />
-                  批量设置权限
+                  {permissionModalMode === "single" ? "设置权限" : "批量设置权限"}
                 </h3>
                 <button
                   onClick={() => setShowPermissionModal(false)}
@@ -392,7 +399,15 @@ export default function App() {
 
               <div className="p-6">
                 <div className="mb-4 text-sm text-gray-500">
-                  已选择 <span className="font-bold text-blue-600">{selectedIds.length}</span> 个文件进行统一设置：
+                  {permissionModalMode === "single" ? (
+                    <>
+                      当前文件：<span className="font-bold text-blue-600">{selectedFileDetails?.name || "未选择文件"}</span>
+                    </>
+                  ) : (
+                    <>
+                      已选择 <span className="font-bold text-blue-600">{selectedIds.length}</span> 个文件进行统一设置：
+                    </>
+                  )}
                 </div>
 
                 <div className="space-y-4">
@@ -451,6 +466,7 @@ export default function App() {
                   onClick={() => {
                     window.alert("权限设置已保存");
                     setShowPermissionModal(false);
+                    setPermissionModalMode("batch");
                     resetSelectionState();
                   }}
                   className="rounded-lg bg-blue-600 px-5 py-2 font-medium text-white shadow-sm transition-colors hover:bg-blue-700"
@@ -564,6 +580,13 @@ export default function App() {
                 </div>
 
                 <div className="flex flex-1 flex-col gap-4 px-2 text-[15px]">
+                  {selectedFileDetails.author && (
+                    <div className="flex items-center justify-between">
+                      <span className="font-bold text-gray-800">来源作者</span>
+                      <span className="text-gray-600">{selectedFileDetails.author}</span>
+                    </div>
+                  )}
+
                   <div className="flex items-center justify-between">
                     <span className="font-bold text-gray-800">文件大小</span>
                     <span className="text-gray-600">{selectedFileDetails.details?.size || "未知"}</span>
