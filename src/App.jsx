@@ -25,15 +25,15 @@ import {
 } from "lucide-react";
 
 const mockMyFiles = [
-  { id: "1", category: "image", name: "图片_757", emoji: "⛅", hasCrown: false, details: { size: "836KB", dimensions: "924x728", format: "png", refCount: 1, actionLabel: "存为纹理", actionStyle: "bg-white text-gray-800 border" } },
-  { id: "2", category: "image", name: "图片_756", emoji: "🏠", hasCrown: false, details: { size: "1.2MB", dimensions: "1024x1024", format: "png", refCount: 3, actionLabel: "存为纹理", actionStyle: "bg-white text-gray-800 border" } },
-  { id: "3", category: "image", name: "图片_758", emoji: "📷", hasCrown: false, details: { size: "500KB", dimensions: "800x600", format: "jpg", refCount: 0, actionLabel: "存为纹理", actionStyle: "bg-white text-gray-800 border" } },
-  { id: "4", category: "image", name: "图片_528", emoji: "🛒", hasCrown: false, details: { size: "2MB", dimensions: "1920x1080", format: "png", refCount: 5, actionLabel: "存为纹理", actionStyle: "bg-white text-gray-800 border" } },
-  { id: "5", category: "texture", name: "自定义纹理_765", emoji: "🐺", hasCrown: true, details: { size: "1.5MB", format: "texture", refCount: 1, actionLabel: "导入", actionStyle: "bg-[#fcd53f] text-black font-bold" } },
+  { id: "1", category: "image", name: "图片_757", emoji: "⛅", hasCrown: false, permissionType: "private", details: { size: "836KB", dimensions: "924x728", format: "png", refCount: 1, actionLabel: "存为纹理", actionStyle: "bg-white text-gray-800 border" } },
+  { id: "2", category: "image", name: "图片_756", emoji: "🏠", hasCrown: false, permissionType: "private", details: { size: "1.2MB", dimensions: "1024x1024", format: "png", refCount: 3, actionLabel: "存为纹理", actionStyle: "bg-white text-gray-800 border" } },
+  { id: "3", category: "image", name: "图片_758", emoji: "📷", hasCrown: false, permissionType: "shared", details: { size: "500KB", dimensions: "800x600", format: "jpg", refCount: 0, actionLabel: "存为纹理", actionStyle: "bg-white text-gray-800 border" } },
+  { id: "4", category: "image", name: "图片_528", emoji: "🛒", hasCrown: false, permissionType: "shared", details: { size: "2MB", dimensions: "1920x1080", format: "png", refCount: 5, actionLabel: "存为纹理", actionStyle: "bg-white text-gray-800 border" } },
+  { id: "5", category: "texture", name: "自定义纹理_765", emoji: "🐺", hasCrown: true, permissionType: "private", details: { size: "1.5MB", format: "texture", refCount: 1, actionLabel: "导入", actionStyle: "bg-[#fcd53f] text-black font-bold" } },
   { id: "6", category: "texture", name: "自定义纹理_764", emoji: "🐱", hasCrown: true, details: { size: "3.2MB", format: "texture", refCount: 2, actionLabel: "导入", actionStyle: "bg-[#fcd53f] text-black font-bold" } },
   { id: "7", category: "model", name: "bannanacatnew2", emoji: "🍌", hasCrown: true, details: { size: "870KB", textureSize: "772KB", animSize: "0B", refCount: 1, actionLabel: "转化为角色预设", actionStyle: "bg-[#fcd53f] text-black font-bold" } },
   { id: "8", category: "model", name: "6tui", emoji: "🦵", hasCrown: true, details: { size: "400KB", textureSize: "200KB", animSize: "100KB", refCount: 8, actionLabel: "转化为角色预设", actionStyle: "bg-[#fcd53f] text-black font-bold" } },
-  { id: "9", category: "image", name: "图片_522", emoji: "😺", hasCrown: true, details: { size: "1MB", dimensions: "1000x1000", format: "png", refCount: 2, actionLabel: "存为纹理", actionStyle: "bg-white text-gray-800 border" } },
+  { id: "9", category: "image", name: "图片_522", emoji: "😺", hasCrown: true, permissionType: "shared", details: { size: "1MB", dimensions: "1000x1000", format: "png", refCount: 2, actionLabel: "存为纹理", actionStyle: "bg-white text-gray-800 border" } },
   { id: "a1", category: "audio", name: "音频_1950", formatTag: "wav", duration: "00:03", hasCrown: false, details: { size: "148KB", duration: "00:03", format: "wav", refCount: 0 } },
   { id: "a2", category: "audio", name: "音频_1949", formatTag: "mp3", duration: "00:27", hasCrown: false, details: { size: "840KB", duration: "00:27", format: "mp3", refCount: 2 } },
   { id: "a3", category: "audio", name: "lovesickgirl", formatTag: "mp3", duration: "00:15", hasCrown: false, details: { size: "500KB", duration: "00:15", format: "mp3", refCount: 1 } },
@@ -45,7 +45,7 @@ const mockMyFiles = [
 const mockCobuildFiles = [
   { id: "11", category: "texture", name: "共建_纹理_01", emoji: "🎨", hasCrown: false, author: "UserA", details: { size: "2.5MB", format: "texture", refCount: 12, actionLabel: "导入", actionStyle: "bg-[#fcd53f] text-black font-bold" } },
   { id: "12", category: "model", name: "共建_香蕉猫模型", emoji: "🍌", hasCrown: false, author: "UserB", details: { size: "950KB", textureSize: "800KB", animSize: "50KB", refCount: 45, actionLabel: "转化为角色预设", actionStyle: "bg-[#fcd53f] text-black font-bold" } },
-  { id: "13", category: "image", name: "共建_场景贴图", emoji: "📦", hasCrown: true, author: "UserC", details: { size: "5MB", dimensions: "4096x4096", format: "png", refCount: 8, actionLabel: "存为纹理", actionStyle: "bg-white text-gray-800 border" } },
+  { id: "13", category: "image", name: "共建_场景贴图", emoji: "📦", hasCrown: true, author: "UserC", details: { size: "5MB", dimensions: "4096x4096", format: "png", refCount: 8 } },
   { id: "c_a1", category: "audio", name: "共建_环境音_01", formatTag: "mp3", duration: "01:20", hasCrown: false, author: "AudioMaster", details: { size: "2.1MB", duration: "01:20", format: "mp3", refCount: 22 } },
   { id: "c_a2", category: "audio", name: "共建_点击音效", formatTag: "wav", duration: "00:01", hasCrown: false, author: "AudioMaster", details: { size: "45KB", duration: "00:01", format: "wav", refCount: 105 } },
 ];
@@ -73,6 +73,18 @@ function getActionButtonSizeClass(label) {
   }
 
   return "h-8 min-w-[84px] px-4 text-[13px]";
+}
+
+function getPermissionBadgeLabel(permissionType) {
+  if (permissionType === "private") {
+    return "仅自己";
+  }
+
+  if (permissionType === "shared") {
+    return "共建可用";
+  }
+
+  return null;
 }
 
 export default function App() {
@@ -128,6 +140,15 @@ export default function App() {
     }
 
     setSelectedFileDetails(file);
+  };
+
+  const handleSingleFilePermission = () => {
+    if (!selectedFileDetails) {
+      return;
+    }
+
+    setSelectedIds([selectedFileDetails.id]);
+    setShowPermissionModal(true);
   };
 
   return (
@@ -210,11 +231,13 @@ export default function App() {
               </div>
 
               <div className="flex items-center gap-3">
-                <button className="flex items-center gap-1 rounded-full border border-gray-200 bg-white px-3 py-1.5 text-gray-600 shadow-sm">
-                  <span className="inline-block -scale-y-100 transform">1</span>
-                  最新
-                  <ChevronDown size={14} />
-                </button>
+                {activeTab === "my" && (
+                  <button className="flex items-center gap-1 rounded-full border border-gray-200 bg-white px-3 py-1.5 text-gray-600 shadow-sm">
+                    <span className="inline-block -scale-y-100 transform">1</span>
+                    最新
+                    <ChevronDown size={14} />
+                  </button>
+                )}
                 <div className="relative">
                   <input
                     type="text"
@@ -297,6 +320,12 @@ export default function App() {
                   onClick={() => handleItemClick(file)}
                   className={`relative flex cursor-pointer select-none flex-col items-center rounded-2xl p-3 transition-all ${isMultiSelect ? "hover:bg-blue-50" : "hover:scale-105"} ${selectedIds.includes(file.id) ? "bg-blue-100 shadow-md ring-2 ring-blue-400" : "bg-[#c5d6f0]/40"}`}
                 >
+                  {!isMultiSelect && activeTab === "my" && file.permissionType === "private" && (
+                    <div className="absolute right-3 top-3 z-10 rounded-full border border-amber-200 bg-white/90 px-2 py-0.5 text-[10px] font-semibold tracking-[0.02em] text-amber-700 shadow-sm">
+                      {getPermissionBadgeLabel(file.permissionType)}
+                    </div>
+                  )}
+
                   {isMultiSelect && (
                     <div
                       className={`absolute right-2 top-2 z-20 flex h-5 w-5 items-center justify-center rounded-full border-2 ${selectedIds.includes(file.id) ? "border-blue-500 bg-blue-500 text-white" : "border-gray-400 bg-white/50"}`}
@@ -346,7 +375,7 @@ export default function App() {
         </div>
 
         {showPermissionModal && (
-          <div className="absolute inset-0 z-50 flex items-center justify-center bg-black/40">
+          <div className="absolute inset-0 z-[60] flex items-center justify-center bg-black/40">
             <div className="flex w-[480px] flex-col overflow-hidden rounded-2xl bg-white shadow-xl">
               <div className="flex items-center justify-between border-b bg-gray-50 px-6 py-4">
                 <h3 className="flex items-center gap-2 text-lg font-bold text-gray-800">
@@ -481,6 +510,12 @@ export default function App() {
                 <X size={16} strokeWidth={3} />
               </button>
 
+              {activeTab === "my" && selectedFileDetails.permissionType === "private" && (
+                <div className="absolute left-6 top-6 z-10 rounded-full border border-amber-200 bg-white px-3 py-1 text-xs font-semibold text-amber-700 shadow-sm">
+                  仅自己可用
+                </div>
+              )}
+
               {selectedFileDetails.category === "audio" || selectedFileDetails.category === "ai_voice" ? (
                 <div className="relative flex h-[300px] w-[300px] flex-col items-center justify-center rounded-3xl bg-[#b1ccf2] text-white shadow-sm">
                   <div className="flex h-16 items-center gap-1.5 opacity-80">
@@ -507,7 +542,8 @@ export default function App() {
                   <span className="emoji-art text-[110px] leading-none">
                     {selectedFileDetails.emoji}
                   </span>
-                  {selectedFileDetails.details?.actionLabel && (
+                  {(activeTab === "my" || selectedFileDetails.category === "texture" || selectedFileDetails.category === "model") &&
+                    selectedFileDetails.details?.actionLabel && (
                     <button
                       className={`absolute bottom-4 right-4 inline-flex items-center justify-center rounded-full shadow-md transition-transform hover:scale-105 ${getActionButtonSizeClass(selectedFileDetails.details.actionLabel)} ${selectedFileDetails.details.actionStyle}`}
                     >
@@ -583,11 +619,27 @@ export default function App() {
                       <span className="text-gray-600">{selectedFileDetails.details.refCount}</span>
                     </div>
                   )}
+
+                  {activeTab === "my" && selectedFileDetails.permissionType && (
+                    <div className="flex items-center justify-between">
+                      <span className="font-bold text-gray-800">权限类型</span>
+                      <span className="text-gray-600">
+                        {selectedFileDetails.permissionType === "private" ? "仅自己可用" : "允许共建者使用"}
+                      </span>
+                    </div>
+                  )}
                 </div>
 
                 <div className="mt-auto flex h-10 items-center justify-end gap-3">
                   {activeTab === "my" && (
                     <>
+                      <button
+                        onClick={handleSingleFilePermission}
+                        className="flex h-10 items-center justify-center rounded-full border border-transparent bg-white px-4 text-gray-700 shadow-sm transition-colors hover:border-green-200 hover:bg-green-50 hover:text-green-700"
+                      >
+                        <ShieldCheck size={16} className="mr-1.5" />
+                        设置权限
+                      </button>
                       <button className="flex h-10 w-10 items-center justify-center rounded-full border border-transparent bg-white text-gray-700 shadow-sm transition-colors hover:border-gray-200 hover:bg-gray-50">
                         <Tag size={18} fill="currentColor" className="text-gray-600" />
                       </button>
