@@ -1,0 +1,47 @@
+@import "tailwindcss";
+
+:root {
+  color: #1f2937;
+  font-family: "Microsoft YaHei", "PingFang SC", "Segoe UI", sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  background:
+    radial-gradient(circle at top left, rgba(255, 255, 255, 0.72), transparent 28%),
+    radial-gradient(circle at bottom right, rgba(147, 197, 253, 0.34), transparent 24%),
+    linear-gradient(180deg, #f7fbff 0%, #e8f0fa 100%);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+  margin: 0;
+}
+
+body {
+  min-width: 1200px;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+.emoji-art {
+  font-family:
+    "Segoe UI Emoji",
+    "Apple Color Emoji",
+    "Noto Color Emoji",
+    "Segoe UI Symbol",
+    sans-serif;
+  font-variant-emoji: emoji;
+  line-height: 1;
+}
